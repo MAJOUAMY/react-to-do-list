@@ -1,9 +1,9 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 
-function InputBar({ handleSubmit, handleChange, value }) {
+function InputBar({ handleSubmit, handleChange,mode, value }) {
   return (
-    <form className="input-bar">
+    <form className={mode ? "input-bar input-bar-light":"input-bar input-bar-dark"}>
       <input
         type="text"
         value={value}

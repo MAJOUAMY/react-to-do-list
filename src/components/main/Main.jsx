@@ -14,11 +14,16 @@ function Main({ mode }) {
     setTask(e.target.value);
   };
   return (
-    <div className={mode ? "main" : "main main-dark"}>
+    <div 
+    className={mode ? "main" : "main main-dark"}
+  
+    >
+      
       <InputBar
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         value={task}
+        mode={mode}
       />
       <TasksList mode={mode} task={finalTaskValue} />
     </div>

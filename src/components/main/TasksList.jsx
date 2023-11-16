@@ -9,6 +9,7 @@ function TasksList({ task, mode }) {
       setTasks((prevTasks) => [
         ...prevTasks,
         { id: prevTasks.length, checked: false, task ,expand:false},
+        
       ]);
 
     }

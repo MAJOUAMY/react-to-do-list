@@ -7,11 +7,48 @@
     margin: 0;
     padding: 0;
     list-style: none;
+   
 }
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #397524 #DFE9EB;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    
+    width: 6px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DFE9EB;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+  
 
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: purple;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #62A34B;
+  }
+  
+  
+  
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
+    overflow: hidden;
+}
+.app{
+    padding: 0 0 50px 0;
+    
 }
 
 a {
@@ -28,6 +65,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 
 
 }
@@ -62,10 +100,13 @@ a {
 /* main  */
 
 .main {
+    
     width: 500px;
+    position: relative;
     height: calc(100vh - 60px);
     margin: 0 auto;
-    padding: 25px 15px 25px 15px ;
+    
+    overflow-x: hidden;
     
     
 
@@ -78,13 +119,28 @@ a {
 }
 
 .input-bar {
-    position: relative;
+    position: sticky;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+   
+
 
 }
+.input-bar-dark{
+    background-color: black;
+}
+.input-bar-light{
+   background-color: white;
+}
+
 
 .input-bar input {
     width: 100%;
-    padding: 0 40px 0 10px;
+    
     border: none;
     border: 1px solid #ccc;
     height: 35px;
@@ -125,10 +181,12 @@ a {
 /* styling the list of tasks */
 .tasks{
     width: 100%;
-    
+    padding: 0 0 40px 0;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    
    
 }
 

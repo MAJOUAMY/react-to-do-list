@@ -10,8 +10,21 @@ function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
   function toggleMenu(){
     setMenuShow(!menuShow)
   }
-
+  function dropdown(mode, showTask) {
+    if (mode && !showTask) {
+      return "dropdown-menu-hide";
+    } else if (mode && showTask) {
+      return "dropdown-menu";
+    } else if (!mode && !showTask) {
+      return "dropdown-menu-hide";
+    } else {
+      return "dropdown-menu-dark";
+    }
+  }
   
+
+  console.log(mode)
+  console.log(menuShow)
   return (
     <li className={item.expand ? "list-item-expanded" : "list-item"}>
       <div className={item.expand ? "task-left-expanded" : "task-left"}>
@@ -36,12 +49,7 @@ function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
         <AiOutlineArrowDown />
         <AiOutlineArrowUp />
         <BsThreeDotsVertical onClick={toggleMenu} />
-
-        <ul 
-        className={mode ? "dropdown-menu" : "dropdown-menu-dark" 
-        && menuShow ? "dropdown-menu" : "dropdown-menu-hide"}
-
-        >
+        <ul className={dropdown(mode,menuShow)}>
           <li onClick={()=>deleteTask(item.id)}>
 
             <p>delete</p>

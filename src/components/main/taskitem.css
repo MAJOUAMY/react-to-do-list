@@ -62,7 +62,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  /* border: 1px solid white; */
+ 
 }
 
 
@@ -93,7 +93,11 @@
   width: 100%; 
   white-space: normal; 
   overflow-wrap:break-word;
-  
+  border: 1px solid;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 4px;
  
 }
 
@@ -113,7 +117,7 @@
   position: absolute;
   top: calc(100% + 4px);
   right: 5px;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: start;
