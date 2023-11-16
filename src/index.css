@@ -125,7 +125,7 @@ a {
 /* styling the list of tasks */
 .tasks{
     width: 100%;
-    border: 1px solid;
+    
     margin-top: 20px;
     display: flex;
     flex-direction: column;

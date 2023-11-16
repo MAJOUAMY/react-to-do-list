@@ -5,15 +5,16 @@ function TasksList({ task, mode }) {
  
   
   useEffect(() => {
-    if (task !== "") {
+    if (task.trim()!=="") {
       setTasks((prevTasks) => [
         ...prevTasks,
         { id: prevTasks.length, checked: false, task ,expand:false},
       ]);
 
     }
+    
   }, [task]);
-
+ 
   function toggleCheck(id) {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -28,6 +29,10 @@ function TasksList({ task, mode }) {
       )
     );
   }
+ function deleteTask(id){
+   
+    setTasks(tasks.filter((e)=>e.id != id))
+  }
   
 
   return (
@@ -41,6 +46,7 @@ function TasksList({ task, mode }) {
               item={item}
               toggleCheck={toggleCheck}
               showTask={showTask}
+              deleteTask={deleteTask}
              
             />
           ))

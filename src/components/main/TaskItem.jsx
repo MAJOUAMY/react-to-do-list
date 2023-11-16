@@ -5,8 +5,11 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import "./taskitem.css";
 
-function TaskItem({ item, toggleCheck, mode ,showTask}) {
-  
+function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
+  const [menuShow,setMenuShow]=useState(false)
+  function toggleMenu(){
+    setMenuShow(!menuShow)
+  }
 
   
   return (
@@ -32,19 +35,24 @@ function TaskItem({ item, toggleCheck, mode ,showTask}) {
       <div className={item.expand ? "actions-expand" : "actions"}>
         <AiOutlineArrowDown />
         <AiOutlineArrowUp />
-        <BsThreeDotsVertical />
+        <BsThreeDotsVertical onClick={toggleMenu} />
 
-        {/* <ul className={mode ? "dropdown-menu" : "dropdown-menu-dark"}>
-          <li>
+        <ul 
+        className={mode ? "dropdown-menu" : "dropdown-menu-dark" 
+        && menuShow ? "dropdown-menu" : "dropdown-menu-hide"}
+
+        >
+          <li onClick={()=>deleteTask(item.id)}>
+
             <p>delete</p>
 
             <FaRegTrashCan className="menu-icon" />
           </li>
-          <li>
+          {/* <li>
             <p>deleteName</p>
             <FaRegTrashCan className="menu-icon" />
-          </li>
-        </ul> */}
+          </li> */}
+        </ul>
       </div>
     </li>
   );
