@@ -1,5 +1,6 @@
-import React from "react";
+
 import { FaPlus } from "react-icons/fa";
+import "./inputBar.css"
 
 function InputBar({ handleSubmit, handleChange,mode, value }) {
   return (

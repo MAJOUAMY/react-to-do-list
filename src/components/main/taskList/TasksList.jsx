@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TaskItem from "./TaskItem";
+import TaskItem from "../taskItem/TaskItem";
+import "./taskList.css"
 function TasksList({ task, mode }) {
   const [tasks, setTasks] = useState([]);
  

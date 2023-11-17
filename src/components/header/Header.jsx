@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaCircleHalfStroke } from "react-icons/fa6"
+import "./header.css"
 function Header({ changeMode ,mode}) {
   return (
     <header className='header'>

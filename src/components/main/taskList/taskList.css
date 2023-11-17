@@ -1,0 +1,11 @@
+/* styling the list of tasks */
+.tasks{
+    width: 100%;
+    padding: 0 0 40px 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+   
+}

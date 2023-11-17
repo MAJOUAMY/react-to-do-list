@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import InputBar from "./InputBar";
-import TasksList from "./TasksList";
+import InputBar from "./taskInput/InputBar";
+import TasksList from "./taskList/TasksList";
 
 function Main({ mode }) {
   let [task, setTask] = useState("");

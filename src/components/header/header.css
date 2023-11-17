@@ -1,0 +1,28 @@
+
+.header {
+    width: 50%;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+
+}
+
+.header .logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.header .logo span {
+    color: rgb(142, 12, 142);
+}
+
+.header .dark-light {
+    width: 20px;
+    height: 20px;
+
+
+}

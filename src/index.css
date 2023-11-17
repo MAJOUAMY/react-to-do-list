@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap');
 
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,13 +10,13 @@
 /* Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #397524 #DFE9EB;
+    scrollbar-color: #d0d6ce #DFE9EB;
   }
   
   /* Chrome, Edge and Safari */
   *::-webkit-scrollbar {
     
-    width: 6px;
+    width: 4px;
   }
   *::-webkit-scrollbar-track {
     border-radius: 5px;
@@ -36,7 +34,7 @@
   }
   
   *::-webkit-scrollbar-thumb:hover {
-    background-color: #62A34B;
+    background-color: #c1c7bf;
   }
   
   
@@ -58,34 +56,6 @@ a {
 
 
 
-.header {
-    width: 50%;
-    margin: 0 auto;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-
-
-}
-
-.header .logo {
-    font-weight: bold;
-    font-size: 1.4rem;
-}
-
-.header .logo span {
-    color: rgb(142, 12, 142);
-}
-
-.header .dark-light {
-    width: 20px;
-    height: 20px;
-
-
-}
-
 .light-mode {
     color: black;
     background-color: white;
@@ -105,7 +75,6 @@ a {
     position: relative;
     height: calc(100vh - 60px);
     margin: 0 auto;
-    
     overflow-x: hidden;
     
     
@@ -118,99 +87,14 @@ a {
 
 }
 
-.input-bar {
-    position: sticky;
-    width: 100%;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    right: 0;
-    
-   
-
-
-}
-.input-bar-dark{
-    background-color: black;
-}
-.input-bar-light{
-   background-color: white;
-}
-
-
-.input-bar input {
-    width: 100%;
-    
-    border: none;
-    border: 1px solid #ccc;
-    height: 35px;
-    color: #bbb;
-    font-size: 1.2rem;
-    font-weight: 400;
-    border-radius: 7px;
-    background-color: transparent;
-
-
-
-}
-
-.input-bar input:focus {
-    outline: none;
-
-}
-
-.plus-icon {
-    position: absolute;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    /*border: 1px solid;*/
-
-
-}
-
-.plus-icon svg {
-    width: 22px;
-    height: 22px;
-    color: #ddd;
-}
-
-/* styling the list of tasks */
-.tasks{
-    width: 100%;
-    padding: 0 0 40px 0;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    
-   
-}
-
-
-/* styling the list item form fun */
-
-.list-item{
-    padding: 4px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    /* border: 1px solid white; */
-}
-
-
-
 /* responsive ----------- */
 @media only screen and (max-width:722px) {
     .main {
-        width:calc(100% - 2px);
+        width:calc(100% - 20px);
     }
 
     .header {
         width: calc(100% - 40px);
+        margin-bottom: 10px;
     }
 }

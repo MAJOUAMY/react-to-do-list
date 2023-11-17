@@ -23,8 +23,6 @@ function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
   }
   
 
-  console.log(mode)
-  console.log(menuShow)
   return (
     <li className={item.expand ? "list-item-expanded" : "list-item"}>
       <div className={item.expand ? "task-left-expanded" : "task-left"}>
