@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-
+import { FaRegEye } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import "./taskitem.css";
 
-function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
-  const [menuShow,setMenuShow]=useState(false)
-  function toggleMenu(){
-    setMenuShow(!menuShow)
+function TaskItem({
+  item,
+  toggleCheck,
+  mode,
+  showTask,
+  deleteTask,
+  moveDown,
+  moveUp,
+  clicked,
+}) {
+  const [menuShow, setMenuShow] = useState(false);
+
+  function toggleMenu() {
+    setMenuShow(!menuShow);
   }
+ 
   function dropdown(mode, showTask) {
     if (mode && !showTask) {
       return "dropdown-menu-hide";
@@ -21,7 +32,9 @@ function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
       return "dropdown-menu-dark";
     }
   }
-  
+  function handleMouseLeave(){
+    setMenuShow(false)
+  }
 
   return (
     <li className={item.expand ? "list-item-expanded" : "list-item"}>
@@ -44,20 +57,40 @@ function TaskItem({ item, toggleCheck, mode ,showTask ,deleteTask}) {
       </div>
 
       <div className={item.expand ? "actions-expand" : "actions"}>
-        <AiOutlineArrowDown />
-        <AiOutlineArrowUp />
         <BsThreeDotsVertical onClick={toggleMenu} />
-        <ul className={dropdown(mode,menuShow)}>
-          <li onClick={()=>deleteTask(item.id)}>
-
+        <ul 
+        onMouseLeave={handleMouseLeave}
+        className={dropdown(mode, menuShow)}>
+          <li onClick={() => deleteTask(item.id)}>
             <p>delete</p>
 
             <FaRegTrashCan className="menu-icon" />
           </li>
-          {/* <li>
-            <p>deleteName</p>
-            <FaRegTrashCan className="menu-icon" />
-          </li> */}
+          <li
+            onClick={() => {
+              moveDown(item.id);
+            }}
+          >
+            <p>Dwon</p>
+
+            <AiOutlineArrowDown />
+          </li>
+          <li
+            onClick={() => {
+              moveUp(item.id);
+            }}
+          >
+            <p>Up</p>
+
+            <AiOutlineArrowUp />
+          </li>
+          <li
+            onClick={()=>{showTask(item.id)}}
+          >
+            <p>show</p>
+
+            <FaRegEye />
+          </li>
         </ul>
       </div>
     </li>

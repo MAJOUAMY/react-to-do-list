@@ -73,9 +73,9 @@ a {
     
     width: 500px;
     position: relative;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 100px);
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow: auto;
     
     
 
