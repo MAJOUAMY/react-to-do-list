@@ -4,7 +4,7 @@ import Main from "./components/main/Main";
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem("mode") === "light");
-  const [clicked, setClicked] = useState(false);
+
 
   useEffect(() => {
     localStorage.setItem("mode", mode ? "light" : "dark");
@@ -14,9 +14,7 @@ function App() {
     setMode((prev) => !prev);
   }
 
-  function handleDivClick() {
-    setClicked(true);
-  }
+
 
   return (
     <div
@@ -25,8 +23,8 @@ function App() {
     >
       <Header changeMode={changeMode} mode={mode} />
       <Main 
-      onClick={handleDivClick}
-      mode={mode} clicked={clicked} />
+     
+      mode={mode} />
     </div>
   );
 }

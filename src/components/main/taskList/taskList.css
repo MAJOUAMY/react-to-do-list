@@ -1,11 +1,12 @@
 /* styling the list of tasks */
 .tasks{
     width: 100%;
-    /* padding: 0 0 px 0; */
+    padding: 0 0 120px 0;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    overflow: hidden;
+    overflow-y: visible;
     
    
 }

@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
-import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import "./taskitem.css";
 
-function TaskItem({
-  item,
-  toggleCheck,
-  mode,
-  showTask,
-  deleteTask,
-  moveDown,
-  moveUp,
-  clicked,
-}) {
+
+function TaskItem({ item, toggleCheck, mode, showTask, deleteTask }) {
   const [menuShow, setMenuShow] = useState(false);
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: item});
+ 
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   function toggleMenu() {
     setMenuShow(!menuShow);
   }
- 
+
   function dropdown(mode, showTask) {
     if (mode && !showTask) {
       return "dropdown-menu-hide";
@@ -32,12 +32,17 @@ function TaskItem({
       return "dropdown-menu-dark";
     }
   }
-  function handleMouseLeave(){
-    setMenuShow(false)
+  function handleMouseLeave() {
+    setMenuShow(false);
   }
 
   return (
-    <li className={item.expand ? "list-item-expanded" : "list-item"}>
+    <li
+      ref={setNodeRef}
+      style={style}
+      
+      className={item.expand ? "list-item-expanded" : "list-item"}
+    >
       <div className={item.expand ? "task-left-expanded" : "task-left"}>
         <label className={item.expand ? "container-expanded" : "container"}>
           <input
@@ -49,6 +54,8 @@ function TaskItem({
         </label>
 
         <p
+        {...attributes}
+        {...listeners}
           className={item.expand ? "task-text-expand" : "task-text"}
           onDoubleClick={() => showTask(item.id)}
         >
@@ -58,34 +65,20 @@ function TaskItem({
 
       <div className={item.expand ? "actions-expand" : "actions"}>
         <BsThreeDotsVertical onClick={toggleMenu} />
-        <ul 
-        onMouseLeave={handleMouseLeave}
-        className={dropdown(mode, menuShow)}>
+        <ul
+          onMouseLeave={handleMouseLeave}
+          className={dropdown(mode, menuShow)}
+        >
           <li onClick={() => deleteTask(item.id)}>
             <p>delete</p>
 
             <FaRegTrashCan className="menu-icon" />
           </li>
+
           <li
             onClick={() => {
-              moveDown(item.id);
+              showTask(item.id);
             }}
-          >
-            <p>Dwon</p>
-
-            <AiOutlineArrowDown />
-          </li>
-          <li
-            onClick={() => {
-              moveUp(item.id);
-            }}
-          >
-            <p>Up</p>
-
-            <AiOutlineArrowUp />
-          </li>
-          <li
-            onClick={()=>{showTask(item.id)}}
           >
             <p>show</p>
 

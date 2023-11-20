@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import InputBar from "./taskInput/InputBar";
 import TasksList from "./taskList/TasksList";
 
-function Main({ mode ,clicked}) {
+function Main({ mode }) {
   let [task, setTask] = useState("");
   const [finalTaskValue, setFinalTaskValue] = useState("");
   let handleSubmit = (e) => {
@@ -25,7 +25,7 @@ function Main({ mode ,clicked}) {
         value={task}
         mode={mode}
       />
-      <TasksList clicked={clicked} mode={mode} task={finalTaskValue} />
+      <TasksList  mode={mode} task={finalTaskValue} />
     </div>
   );
 }
